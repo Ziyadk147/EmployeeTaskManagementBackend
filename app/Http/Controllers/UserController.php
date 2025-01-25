@@ -16,17 +16,17 @@ class UserController extends Controller
         ]);
         $user = User::where('email' , $request->email)->first();
         if(!$user ||!Hash::check($request->password , $user->password)){
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['error' => 'Invalid Credentials'], 401);
         }
         else{
             $token = $user->createToken('loginToken')->plainTextToken;
-            return response()->json(['token' => $token], 200);
+            return response()->json(['token' => $token , 'status' => 200], 200);
         }
     }
 
     public function Logout(Request $request)
     {
-        if($request->user){
+        if($request->user()){
 
             $request->user()->tokens()->delete();
             return response()->json(['message' => 'Logged out'] , 200);
