@@ -9,3 +9,7 @@ Route::get('/user', function (Request $request) {
 
 Route::post('/login' , [\App\Http\Controllers\UserController::class , 'Login']);
 Route::middleware('auth:sanctum')->post('/logout', [\App\Http\Controllers\UserController::class, 'logout']);
+
+Route::middleware("auth:sanctum")->group(function () {
+    Route::resource('employee' , \App\Http\Controllers\EmployeeController::class);
+});
