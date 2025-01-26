@@ -78,7 +78,7 @@ class EmployeeController extends Controller
             'email' => $request->email,
         ]);
 
-        return response()->json($employee);
+        return response()->json(['data' => $employee , 'message' => "Employee Updated Successfully" , 'status' => 200] , 200)   ;
     }
 
     /**
