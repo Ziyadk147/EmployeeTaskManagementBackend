@@ -31,7 +31,8 @@ class TaskController extends Controller
     {
         $data = $request->all();
 
-        $task = Task::insertOrUpda($tasks);;
+        $uniqueFields = ['employeeID', 'taskDate' , 'taskDescription']; // The fields to check for existence
+        $task = Task::upsert($data , $uniqueFields , $uniqueFields);;
 //        $request->validate([
 //            'id' => 'required|string',
 //            'day' => 'required|string',
