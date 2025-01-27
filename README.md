@@ -6,5 +6,6 @@
 3) Run php artisan key:generate
 4) Run php artisan migrate
 5) Run php artisan db:seed
-6) 
+6) Run php artisan serv and then login to the frontend with these credentials
+7) email: admin@admin.com password: password
 
