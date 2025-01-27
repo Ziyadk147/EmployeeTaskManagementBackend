@@ -12,4 +12,5 @@ Route::middleware('auth:sanctum')->post('/logout', [\App\Http\Controllers\UserCo
 
 Route::middleware("auth:sanctum")->group(function () {
     Route::resource('employee' , \App\Http\Controllers\EmployeeController::class);
+    Route::resource('task' , \App\Http\Controllers\TaskController::class);
 });
